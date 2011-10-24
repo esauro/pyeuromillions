@@ -19,7 +19,7 @@ class PyEuromillions:
             f = filter['function']
             args = filter['args']
             kwargs = filter['kwargs']
-            valid_combs = itertools.ifilter(lambda x: f(x, *args, **kwargs), valid_combs)
+            valid_combs = [x for x in valid_combs if f(x, *args, **kwargs)]
         return valid_combs
     
     def register(self, function, *args, **kwargs):
